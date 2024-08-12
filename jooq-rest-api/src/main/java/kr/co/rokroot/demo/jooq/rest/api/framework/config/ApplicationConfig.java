@@ -47,7 +47,7 @@ import java.util.concurrent.TimeUnit;
 @ComponentScan(basePackages = { "kr.co.rokroot.demo.jooq.rest.api.module" },
         includeFilters = @ComponentScan.Filter({ Controller.class, ControllerAdvice.class, Service.class, Repository.class, Component.class }),
         useDefaultFilters = false)
-@Import({ AsyncConfig.class, MariaDBJooqConfig.class, SwaggerConfig.class })
+@Import({ MariaDBJooqConfig.class, SwaggerConfig.class })
 public class ApplicationConfig {
 
     @Bean
