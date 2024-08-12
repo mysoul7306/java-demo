@@ -1,0 +1,58 @@
+### Maven ###
+target/
+!.mvn/**
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### Gradle ###
+buildSrc/build
+build/
+.gradle
+.gradletasknamecache
+!../gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+/target/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### jOOQ Codes ###
+**/jooq/
+!**/src/main/java/**/jooq/
+
+### ETC ###
+logs/
+.patch/
+*.pid
