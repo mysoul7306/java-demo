@@ -8,6 +8,7 @@
 
 rootProject.name = "jooq-demo"
 include("core")
+include("jooq-rest-api")
 
 pluginManagement {
     repositories {

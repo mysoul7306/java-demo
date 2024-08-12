@@ -51,6 +51,7 @@ out/
 ### jOOQ Codes ###
 **/jooq/
 !**/src/main/java/**/jooq/
+!**/src/test/java/**/jooq/
 
 ### ETC ###
 logs/
