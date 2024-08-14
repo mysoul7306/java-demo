@@ -19,13 +19,18 @@ plugins {
 springBoot.mainClass.set("kr.co.igloo.rokroot.demo.jooq.rest.api.RestAPIInitializer")
 description = "ROK_ROOT Demo jOOQ Rest API module"
 
+var password = ""
+if (project.hasProperty("DBPassword")) {
+    password = project.property("DBPassword").toString()
+}
+
 when (rootProject.extra["ACTIVE_PROFILE"] as String) {
     "dev" -> {
         extra.apply {
             set("MARIADB_HOST", "192.168.1.30")
             set("MARIADB_PORT", "31828")
             set("MARIADB_USER", "rokroot")
-            set("MARIADB_PASSWORD", "ROKroot3009!")
+            set("MARIADB_PASSWORD", password)
         }
     }
 
@@ -34,7 +39,7 @@ when (rootProject.extra["ACTIVE_PROFILE"] as String) {
             set("MARIADB_HOST", "rokroot.asuscomm.com")
             set("MARIADB_PORT", "33306")
             set("MARIADB_USER", "rokroot")
-            set("MARIADB_PASSWORD", "ROKroot3009!")
+            set("MARIADB_PASSWORD", password)
         }
     }
 }
