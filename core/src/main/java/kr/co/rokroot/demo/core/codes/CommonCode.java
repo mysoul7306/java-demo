@@ -17,6 +17,7 @@ import lombok.Getter;
 public enum CommonCode implements ResponseCode {
 
     OK("ROK_CMM_0000", "success"),
+    CONNECTION_ERROR("ROK_CMM_5031", "connection error"),
     FAIL("ROK_CMM_9999", "fail");
 
     private final String code;

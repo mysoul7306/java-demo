@@ -81,8 +81,8 @@ public class ApplicationConfig {
                 .build();
     }
 
-    @Bean
-    public WebClient webClient() throws SSLException {
+    @Bean(name = "externalAPIClient")
+    public WebClient externalAPIClient() throws SSLException {
         SslContext context = SslContextBuilder.forClient()
                 .trustManager(InsecureTrustManagerFactory.INSTANCE)
                 .build();

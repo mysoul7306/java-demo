@@ -34,6 +34,3 @@ db:
     port: "${MARIADB_PORT}"
     username: "${MARIADB_USER}"
     password: "${MARIADB_PASSWORD}"
-
-client:
-  reconnect.timeout: 10
