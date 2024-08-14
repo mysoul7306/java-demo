@@ -22,7 +22,7 @@ import java.time.LocalDateTime;
 public abstract class AbstractRestResponse {
 
 	private ResponseCode resultType = QueryResultCode.OK;
-	private LocalDateTime resTime = LocalDateTime.now();
+	private String resTime = LocalDateTime.now().toString();
 	protected Integer count;
 
 	public abstract boolean hasData();

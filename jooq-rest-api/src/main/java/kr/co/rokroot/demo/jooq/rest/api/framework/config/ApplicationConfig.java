@@ -11,6 +11,7 @@ package kr.co.rokroot.demo.jooq.rest.api.framework.config;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import io.netty.channel.ChannelOption;
 import io.netty.handler.ssl.SslContext;
 import io.netty.handler.ssl.SslContextBuilder;
@@ -64,6 +65,7 @@ public class ApplicationConfig {
     public ObjectMapper objectMapper() {
         ObjectMapper om = new ObjectMapper();
         om.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        om.registerModule(new JavaTimeModule());
         om.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
 
         return om;

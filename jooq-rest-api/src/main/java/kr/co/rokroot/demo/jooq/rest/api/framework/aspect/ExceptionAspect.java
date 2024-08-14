@@ -87,7 +87,7 @@ public class ExceptionAspect {
     @ResponseBody
     private ResponseEntity<JSONObject> interceptIllegalRuleArgumentException(HttpServletRequest req, HttpServletResponse res,
                                                                              DemoException e) {
-        return this.responseException(req, HttpStatus.BAD_REQUEST, e.getCode(), e);
+        return this.responseException(req, HttpStatus.INTERNAL_SERVER_ERROR, e.getCode(), e);
     }
 
     @ExceptionHandler(RejectedExecutionException.class)
