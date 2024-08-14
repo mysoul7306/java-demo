@@ -22,7 +22,7 @@ extra.apply {
 }
 
 version = extra["VERSION"] as String
-group = "kr.co.rokroot.demo"
+group = "kr.co.rokroot"
 description = "ROK_ROOT Demo project"
 
 allprojects {

@@ -6,7 +6,7 @@
  * All Rights Reserved
  */
 
-rootProject.name = "jooq-demo"
+rootProject.name = "rokroot-demo"
 include("core")
 include("jooq-rest-api")
 
