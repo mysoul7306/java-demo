@@ -10,11 +10,7 @@ package kr.co.rokroot.demo.jooq.rest.api.framework.aspect;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 @Slf4j
@@ -24,16 +20,15 @@ public class ControllerAspect {
 
     private long start = 0L;
 
-    @Pointcut("within(kr.co.rokroot.demo.jooq.rest.api.module..*Controller)")
-    public void apiPointcut() {
-    }
+    @Pointcut(value = "within(kr.co.rokroot.demo.jooq.rest.api.module..*Controller)")
+    private void apiPointcut() {  }
 
-    @Before("apiPointcut()")
+    @Before(value = "apiPointcut()")
     public void before() {
         this.start = System.currentTimeMillis();
     }
 
-    @Around("apiPointcut()")
+    @Around(value = "apiPointcut()")
     public Object apiProceed(ProceedingJoinPoint point) throws Throwable {
         point.getSignature();
 
@@ -42,7 +37,7 @@ public class ControllerAspect {
         return point.proceed();
     }
 
-    @After("apiPointcut()")
+    @After(value = "apiPointcut()")
     public void after() {
         log.info("### Established time(s): {}ms", System.currentTimeMillis() - this.start);
     }
