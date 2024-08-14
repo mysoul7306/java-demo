@@ -133,6 +133,7 @@ jooq {
                                 includeTypes = "INET"
                             }
                         )
+                        excludes = "information_schema.*"
                     }
                     generate.apply {
                         isDeprecated = false
