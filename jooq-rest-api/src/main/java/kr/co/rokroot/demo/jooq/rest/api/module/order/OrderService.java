@@ -8,8 +8,9 @@
 
 package kr.co.rokroot.demo.jooq.rest.api.module.order;
 
-import kr.co.rokroot.demo.jooq.rest.api.framework.client.RestApiClient;
+import kr.co.rokroot.demo.core.exceptions.DemoException;
 import kr.co.rokroot.demo.jooq.rest.api.module.order.domain.OrderEntity;
+import kr.co.rokroot.demo.jooq.rest.api.module.order.domain.OrderStatus;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -19,13 +20,14 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class OrderService {
 
-    private final RestApiClient api;
-
     private final OrderRepository orderRepo;
 
     public OrderEntity selectOrderData(Long seq) {
         orderRepo.selectOrderDatWithSQLQuery();
         OrderEntity order = orderRepo.selectOrderDatWithDSLQuery(seq);
+        if (order == null) {
+            throw new DemoException(OrderStatus.FAIL);
+        }
 
         return order;
     }
