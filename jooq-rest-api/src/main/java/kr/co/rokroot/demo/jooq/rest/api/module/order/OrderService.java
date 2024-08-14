@@ -1,0 +1,32 @@
+/*
+ * Author: rok_root
+ * E-mail: mysoul7306@outlook.com
+ * Create: 2023. 09. 30
+ * Update: 2024. 08. 13
+ * All Rights Reserved
+ */
+
+package kr.co.rokroot.demo.jooq.rest.api.module.order;
+
+import kr.co.rokroot.demo.jooq.rest.api.framework.client.RestApiClient;
+import kr.co.rokroot.demo.jooq.rest.api.module.order.domain.OrderEntity;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+
+@Slf4j
+@Service
+@RequiredArgsConstructor
+public class OrderService {
+
+    private final RestApiClient api;
+
+    private final OrderRepository orderRepo;
+
+    public OrderEntity selectOrderData(Long seq) {
+        orderRepo.selectOrderDatWithSQLQuery();
+        OrderEntity order = orderRepo.selectOrderDatWithDSLQuery(seq);
+
+        return order;
+    }
+}
