@@ -2,7 +2,7 @@
  * Author: rok_root
  * E-mail: mysoul7306@outlook.com
  * Create: 2023. 09. 30
- * Update: 2024. 08. 01
+ * Update: 2024. 08. 16
  * All Rights Reserved
  */
 
@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
-public abstract class AbstractRestRequest {
+public abstract class AbstractRequest {
 
 	private LocalDateTime reqTime;
 

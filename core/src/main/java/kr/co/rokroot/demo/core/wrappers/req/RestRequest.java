@@ -2,13 +2,13 @@
  * Author: rok_root
  * E-mail: mysoul7306@outlook.com
  * Create: 2023. 09. 30
- * Update: 2024. 08. 01
+ * Update: 2024. 08. 16
  * All Rights Reserved
  */
 
 package kr.co.rokroot.demo.core.wrappers.req;
 
-import kr.co.rokroot.demo.core.abstracts.AbstractRestRequest;
+import kr.co.rokroot.demo.core.abstracts.AbstractRequest;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,7 +20,7 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class RestRequest<T extends Serializable> extends AbstractRestRequest implements Serializable {
+public class RestRequest<T extends Serializable> extends AbstractRequest implements Serializable {
 
 	public static <T extends Serializable> RestRequest<T> create() {
 		return new RestRequest<>();

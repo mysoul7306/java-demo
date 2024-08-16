@@ -2,13 +2,13 @@
  * Author: rok_root
  * E-mail: mysoul7306@outlook.com
  * Create: 2023. 09. 30
- * Update: 2024. 08. 01
+ * Update: 2024. 08. 16
  * All Rights Reserved
  */
 
 package kr.co.rokroot.demo.core.wrappers.res;
 
-import kr.co.rokroot.demo.core.abstracts.AbstractRestResponse;
+import kr.co.rokroot.demo.core.abstracts.AbstractResponse;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,7 +22,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class RestListResponse<T extends Serializable> extends AbstractRestResponse implements Serializable {
+public class RestListResponse<T extends Serializable> extends AbstractResponse implements Serializable {
 
 	public static <T extends Serializable> RestListResponse<T> create(T clazz) {
 		return new RestListResponse<T>().add(clazz);
