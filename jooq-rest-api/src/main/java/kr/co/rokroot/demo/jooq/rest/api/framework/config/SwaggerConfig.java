@@ -28,7 +28,7 @@ public class SwaggerConfig {
         return GroupedOpenApi.builder()
                 .packagesToScan("kr.co.rokroot.demo.jooq.rest.api.module")
                 .group("v1")
-                .pathsToMatch("/rokroot/demo/v1/**")
+                .pathsToMatch("/rokroot/demo/api/v1/**")
                 .displayName("[ROK_ROOT] jOOQ Demo REST API v1")
                 .addOpenApiCustomizer(this.customizer())
                 .build();

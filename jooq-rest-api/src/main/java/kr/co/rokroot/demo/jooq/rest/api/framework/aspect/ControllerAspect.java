@@ -39,7 +39,7 @@ public class ControllerAspect {
 
     @After(value = "apiPointcut()")
     public void after() {
-        log.info("### Established time(s): {}ms", System.currentTimeMillis() - this.start);
+        log.info("### Established time(s): {}ms", String.valueOf(System.currentTimeMillis() - this.start));
     }
 
 }

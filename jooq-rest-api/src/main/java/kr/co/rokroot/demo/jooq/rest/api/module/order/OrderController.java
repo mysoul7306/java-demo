@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/rokroot/demo/v1/order")
+@RequestMapping("/rokroot/demo/api/v1/order")
 public class OrderController {
 
     private final OrderService service;
