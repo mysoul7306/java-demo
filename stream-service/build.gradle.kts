@@ -5,11 +5,6 @@ plugins {
 springBoot.mainClass.set("kr.co.igloo.rokroot.demo.stream.service.StreamServiceInitializer")
 description = "ROK_ROOT Demo Stream Service module"
 
-var password = ""
-if (project.hasProperty("DBPassword")) {
-    password = project.property("DBPassword").toString()
-}
-
 when (rootProject.extra["ACTIVE_PROFILE"] as String) {
     "dev" -> {
         extra.apply {
