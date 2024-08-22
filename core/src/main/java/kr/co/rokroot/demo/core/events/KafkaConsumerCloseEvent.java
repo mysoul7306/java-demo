@@ -10,12 +10,12 @@ package kr.co.rokroot.demo.core.events;
 
 import org.springframework.context.ApplicationEvent;
 
-public class ClientConnectionCloseEvent extends ApplicationEvent {
+public class KafkaConsumerCloseEvent extends ApplicationEvent {
 
     @java.io.Serial
     private static final long serialVersionUID = 3092095391002390920L;
 
-    public ClientConnectionCloseEvent(Object source) {
+    public KafkaConsumerCloseEvent(Object source) {
         super(source);
     }
 

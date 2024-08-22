@@ -1,0 +1,35 @@
+rokroot.demo.stream.version: "${VERSION}"
+
+logging.config: "classpath:log4j2.properties"
+
+server:
+  port: 20931
+  servlet:
+    session:
+      persistent: true
+      timeout: 3600
+    encoding:
+      charset: UTF-8
+      force: true
+  compression:
+    enabled: true
+    mime-types: text/html,text/plain,text/css,text/javascript,application/javascript,application/json
+    min-response-size: 1024
+
+spring:
+  application.name: stream-service
+  web:
+    resources:
+      add-mappings: true
+      static-locations: classpath:/META-INF/resources/
+  mvc:
+    pathmatch.matching-strategy: ANT_PATH_MATCHER
+  thymeleaf:
+    prefix: classpath:/template/
+    suffix: .html
+
+stream:
+  kafka:
+    host: "${KAFKA_HOST}"
+    port: "${KAFKA_PORT}"
+    timeout: 9
