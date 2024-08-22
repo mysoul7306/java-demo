@@ -14,14 +14,14 @@ when (rootProject.extra["ACTIVE_PROFILE"] as String) {
     "dev" -> {
         extra.apply {
             set("KAFKA_HOST", "192.168.1.30")
-            set("KAFKA_PORT", "30928")
+            set("KAFKA_PORT", "30900")
         }
     }
 
     "prd" -> {
         extra.apply {
             set("KAFKA_HOST", "rokroot.asuscomm.com")
-            set("KAFKA_PORT", "39090")
+            set("KAFKA_PORT", "30900")
         }
     }
 }
