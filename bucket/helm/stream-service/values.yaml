@@ -1,0 +1,35 @@
+image:
+  registry: docker.io
+  tag: 0.0.1
+  imagePullPolicy: IfNotPresent
+
+stream:
+  service:
+    cpu: 2
+    memory: 16Gi
+    java:
+      opts: "-Xms16g -Xmx32g -Dfile.encoding=UTF-8"
+    replicas: 1
+    nodePort: 30931
+
+    application.properties: |
+      stream.kafka.host=kafka-kafka-bootstrap.kafka
+      stream.kafka.port=9092
+
+    log4j2.properties: |
+      rootLogger.level=INFO
+      
+      logger.netty.name=io.reactor.netty
+      logger.netty.level=WARN
+
+      logger.apache.name=org.apache
+      logger.apache.level=INFO
+      
+      logger.kafka.name=org.apache.kafka
+      logger.kafka.level=WARN
+      
+      logger.rokroot-core.name=kr.co.rokroot.demo.core
+      logger.rokroot-core.level=DEBUG
+      
+      logger.rokroot-stream-service.name=kr.co.rokroot.demo.stream.service
+      logger.rokroot-stream-service.level=DEBUG
