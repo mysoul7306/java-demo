@@ -8,7 +8,7 @@ plugins {
     id("nu.studer.jooq").version("9.0")
 }
 
-springBoot.mainClass.set("kr.co.igloo.rokroot.demo.jooq.rest.api.RestAPIInitializer")
+springBoot.mainClass.set("kr.co.rokroot.demo.jooq.rest.api.RestAPIInitializer")
 description = "ROK_ROOT Demo jOOQ Rest API module"
 
 var password = ""
@@ -20,7 +20,7 @@ when (rootProject.extra["ACTIVE_PROFILE"] as String) {
     "dev" -> {
         extra.apply {
             set("MARIADB_HOST", "192.168.1.30")
-            set("MARIADB_PORT", "31828")
+            set("MARIADB_PORT", "31895")
             set("MARIADB_USER", "rokroot")
             set("MARIADB_PASSWORD", password)
         }
