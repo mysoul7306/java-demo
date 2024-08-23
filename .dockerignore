@@ -1,0 +1,4 @@
+**/build
+
+!build/libs/rokroot-jooq-rest-api*
+!build/libs/rokroot-stream-service*
