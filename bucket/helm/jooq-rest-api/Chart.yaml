@@ -1,0 +1,11 @@
+apiVersion: v2
+type: application
+
+name: jooq-rest-api
+description: ROK_ROOT Demo jOOQ Rest API Helm Chart for Kubernetes
+maintainers:
+  - name: rok_root
+    email: mysoul7306@outlook.com
+
+version: 0.0.1
+appVersion: "0.0.1"

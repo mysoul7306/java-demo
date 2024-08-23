@@ -1,0 +1,40 @@
+image:
+  registry: docker.io
+  tag: 0.0.1
+  imagePullPolicy: IfNotPresent
+
+jooq:
+  rest:
+    api:
+      cpu: 1
+      memory: 4Gi
+      java:
+        opts: "-Xms4g -Xmx8g -Dfile.encoding=UTF-8"
+      replicas: 1
+      nodePort: 30931
+
+      application.properties: |
+        db.mariadb.host: mariadb-primary.mariadb
+        db.mariadb.port: 3306
+
+      log4j2.properties: |
+        rootLogger.level=INFO
+        
+        logger.netty.name=io.reactor.netty
+        logger.netty.level=WARN
+        
+        logger.apache.name=org.apache
+        logger.apache.level=INFO
+        
+        logger.jooq.name=org.jooq
+        logger.jooq.level=INFO
+        
+        logger.jooq-constants.name=org.jooq.Constants
+        logger.jooq-constants.level=OFF
+        
+        logger.rokroot-core.name=kr.co.rokroot.demo.core
+        logger.rokroot-core.level=DEBUG
+        
+        logger.rokroot-jooq-rest-api.name=kr.co.rokroot.demo.jooq.rest.api
+        logger.rokroot-jooq-rest-api.level=DEBUG
+---
