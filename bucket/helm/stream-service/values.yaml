@@ -33,3 +33,4 @@ stream:
       
       logger.rokroot-stream-service.name=kr.co.rokroot.demo.stream.service
       logger.rokroot-stream-service.level=DEBUG
+---
