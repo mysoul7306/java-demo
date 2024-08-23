@@ -2,7 +2,7 @@ plugins {
     id("org.springframework.boot").version("3.3.2")
 }
 
-springBoot.mainClass.set("kr.co.igloo.rokroot.demo.stream.service.StreamServiceInitializer")
+springBoot.mainClass.set("kr.co.rokroot.demo.stream.service.StreamServiceInitializer")
 description = "ROK_ROOT Demo Stream Service module"
 
 when (rootProject.extra["ACTIVE_PROFILE"] as String) {
