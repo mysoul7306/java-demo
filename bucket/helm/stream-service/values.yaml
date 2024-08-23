@@ -10,7 +10,7 @@ stream:
     java:
       opts: "-Xms16g -Xmx32g -Dfile.encoding=UTF-8"
     replicas: 1
-    nodePort: 30931
+    nodePort: 30932
 
     application.properties: |
       stream.kafka.host=kafka-kafka-bootstrap.kafka

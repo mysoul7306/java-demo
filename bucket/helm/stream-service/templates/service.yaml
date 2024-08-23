@@ -14,5 +14,5 @@ spec:
       name: stream-service-svc
       port: 20931
       targetPort: 20931
-      nodePort: {{ .Values.stream.service.nodePort | default 30931 }}
+      nodePort: {{ .Values.stream.service.nodePort | default 30932 }}
 ---

@@ -6,6 +6,7 @@ metadata:
 data:
   application.properties: |
     logging.config=config/log4j2.properties
+
     {{ index .Values.stream.service "application.properties" | nindent 4 }}
   log4j2.properties: |
     name=PropertiesConfig
