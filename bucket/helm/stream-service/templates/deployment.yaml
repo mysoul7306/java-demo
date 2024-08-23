@@ -33,7 +33,7 @@ spec:
           volumeMounts:
             - name: stream-service-config
               mountPath: /opt/rokroot-demo/stream-service/config
-              readOnly: false
+              readOnly: true
             - name: stream-service-log
               mountPath: /opt/rokroot-demo/stream-service/logs
               readOnly: false
