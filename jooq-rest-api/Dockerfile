@@ -17,7 +17,7 @@ RUN chmod +x /opt/rokroot-demo/gradlew
 RUN /opt/rokroot-demo/gradlew :jooq-rest-api:build -Pprofile=${profile} -PDBPassword=${DBPassword}
 
 FROM docker.io/eclipse-temurin:21-jre-alpine
-WORKDIR /opt/rokroot-demo/rest-api/
+WORKDIR /opt/rokroot-demo/jooq-rest-api/
 
 COPY --from=build /opt/rokroot-demo/jooq-rest-api/build/libs/rokroot-jooq-rest-api.jar /opt/rokroot-demo/jooq-rest-api/rokroot-jooq-rest-api.jar
 
