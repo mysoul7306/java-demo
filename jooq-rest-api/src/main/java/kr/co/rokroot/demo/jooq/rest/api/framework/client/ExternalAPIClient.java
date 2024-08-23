@@ -30,7 +30,7 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 public class ExternalAPIClient {
 
-    @Resource(mappedName = "externalAPIClient")
+    @Resource(name = "apiClient")
     private WebClient client;
 
     public JSONObject callApi(HostType host, RequestMethod method, String uri) throws ExternalAPIClientException {
