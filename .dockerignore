@@ -1,4 +1,4 @@
 **/build
 
-!build/libs/rokroot-jooq-rest-api*
-!build/libs/rokroot-stream-service*
+!build/libs/jooq-rest-api*
+!build/libs/kafka-stream-service*

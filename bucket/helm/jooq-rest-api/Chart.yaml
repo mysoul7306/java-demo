@@ -1,8 +1,8 @@
 apiVersion: v2
 type: application
 
-name: jooq-rest-api
-description: ROK_ROOT Demo jOOQ Rest API Helm Chart for Kubernetes
+name: java-jooq-rest-api
+description: ROK_ROOT Java Demo jOOQ Rest API Helm Chart for Kubernetes
 maintainers:
   - name: rok_root
     email: mysoul7306@outlook.com

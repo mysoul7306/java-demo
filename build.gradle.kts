@@ -14,8 +14,8 @@ extra.apply {
 }
 
 version = extra["VERSION"] as String
-group = "kr.co.rokroot"
-description = "ROK_ROOT Demo project"
+group = "kr.co.rokroot.java.demo"
+description = "ROK_ROOT Java Demo project"
 
 allprojects {
     buildscript {
@@ -35,7 +35,7 @@ subprojects {
     apply(plugin = "java")
     apply(plugin = "application")
 
-    group = "kr.co.rokroot.demo"
+    group = "kr.co.rokroot.java.demo"
     version = rootProject.extra["VERSION"] as String
 
     tasks.withType(JavaCompile::class.java) {

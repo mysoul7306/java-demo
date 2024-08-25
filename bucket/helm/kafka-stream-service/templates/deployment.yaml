@@ -1,0 +1,69 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: java-kafka-stream-service
+  name: java-kafka-stream-service
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: {{ .Values.stream.service.replicas | default 1 }}
+  selector:
+    matchLabels:
+      app: java-kafka-stream-service
+  template:
+    metadata:
+      labels:
+        app: java-kafka-stream-service
+    spec:
+      containers:
+        - name: java-stream-service
+          image: "{{ .Values.image.registry }}/rokroot/java-kafka-stream-service:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.imagePullPolicy | default "IfNotPresent" }}
+          ports:
+            - name: stream
+              hostPort: 20931
+              containerPort: 20931
+          resources:
+            requests:
+              cpu: {{ .Values.stream.service.cpu | default 2 }}
+              memory: {{ .Values.stream.service.memory | default "16Gi" }}
+            limits:
+              cpu: {{ mulf ( .Values.stream.service.cpu | int ) 2 | int }}
+              memory: {{ ( mulf ( ( .Values.stream.service.memory | toString | regexFind "[0-9.]+" ) | int) 2 | int ) }}Gi
+          volumeMounts:
+            - name: java-kafka-stream-service-config
+              mountPath: /opt/java-demo/kafka-stream-service/config
+              readOnly: true
+            - name: java-kafka-stream-service-log
+              mountPath: /opt/java-demo/kafka-stream-service/logs
+              readOnly: false
+          env:
+            - name: TZ
+              value: Asia/Seoul
+            - name: HOST_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.hostIP
+          command:
+            - "java"
+            - "-jar"
+            - "/opt/java-demo/kafka-stream-service/kafka-stream-service.jar"
+            {{- if .Values.stream.service.java.opts }}
+            {{- $opts := .Values.stream.service.java.opts | split " " }}
+            {{- range $opt := $opts }}
+            - {{ $opt | quote }}
+            {{- end }}
+            {{- end }}
+      volumes:
+        - name: java-kafka-stream-service-config
+          configMap:
+            name: java-kafka-stream-service-config
+            items:
+              - key: application.properties
+                path: application.properties
+              - key: log4j2.properties
+                path: log4j2.properties
+        - name: java-kafka-stream-service-log
+          persistentVolumeClaim:
+            claimName: java-kafka-stream-service-log-pvc
+---

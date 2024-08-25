@@ -8,8 +8,8 @@ plugins {
     id("nu.studer.jooq").version("9.0")
 }
 
-springBoot.mainClass.set("kr.co.rokroot.demo.jooq.rest.api.RestAPIInitializer")
-description = "ROK_ROOT Demo jOOQ Rest API module"
+springBoot.mainClass.set("kr.co.rokroot.java.demo.jooq.rest.api.RestAPIInitializer")
+description = "ROK_ROOT Java Demo jOOQ Rest API module"
 
 var password = ""
 if (project.hasProperty("DBPassword")) {
@@ -141,7 +141,7 @@ jooq {
                         withFullyQualifiedTypes(".*\\.*")
                     }
                     target.apply {
-                        packageName = "kr.co.igloo.rokroot.demo.jooq.rest.api.database.mariadb"
+                        packageName = "kr.co.rokroot.java.demo.jooq.rest.api.database.mariadb"
                         directory = mariaDBPath.path
                         encoding = "UTF-8"
                     }
@@ -165,7 +165,7 @@ tasks {
         dependsOn("generateMariaDBJooq")
     }
     bootJar {
-        archiveFileName = "rokroot-jooq-rest-api.jar"
+        archiveFileName = "jooq-rest-api.jar"
     }
     processResources {
         filesMatching("**/application.yml") {

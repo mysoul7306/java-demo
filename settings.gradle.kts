@@ -1,7 +1,7 @@
-rootProject.name = "rokroot-demo"
+rootProject.name = "rokroot-java-demo"
 include("core")
 include("jooq-rest-api")
-include("stream-service")
+include("kafka-stream-service")
 
 pluginManagement {
     repositories {

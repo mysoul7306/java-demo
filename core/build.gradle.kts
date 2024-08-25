@@ -1,4 +1,4 @@
-description = "ROK_ROOT Demo Core Library module"
+description = "ROK_ROOT Java Demo Core Library module"
 
 val libVersions = mapOf(
     "spring.context" to "6.1.11",

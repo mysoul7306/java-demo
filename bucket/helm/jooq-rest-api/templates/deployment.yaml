@@ -2,25 +2,25 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: jooq-rest-api
-  name: jooq-rest-api
+    app: java-jooq-rest-api
+  name: java-jooq-rest-api
   namespace: {{ .Release.Namespace }}
 spec:
   replicas: {{ .Values.jooq.rest.api.replicas | default 1 }}
   selector:
     matchLabels:
-      app: jooq-rest-api
+      app: java-jooq-rest-api
   template:
     metadata:
       labels:
-        app: jooq-rest-api
+        app: java-jooq-rest-api
     spec:
       containers:
-        - name: jooq-rest-api
-          image: "{{ .Values.image.registry }}/rokroot/jooq-rest-api:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        - name: java-jooq-rest-api
+          image: "{{ .Values.image.registry }}/rokroot/java-jooq-rest-api:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.imagePullPolicy | default "IfNotPresent" }}
           ports:
-            - name: report
+            - name: rest
               hostPort: 20930
               containerPort: 20930
           resources:
@@ -31,14 +31,14 @@ spec:
               cpu: {{ mulf ( .Values.jooq.rest.api.cpu | int ) 2 | int }}
               memory: {{ ( mulf ( ( .Values.jooq.rest.api.memory | toString | regexFind "[0-9.]+" ) | int) 2 | int ) }}Gi
           volumeMounts:
-            - name: jooq-rest-api-config
-              mountPath: /opt/rokroot-demo/jooq-rest-api/config
+            - name: java-jooq-rest-api-config
+              mountPath: /opt/java-demo/jooq-rest-api/config
               readOnly: true
-            - name: jooq-rest-api-log
-              mountPath: /opt/rokroot-demo/jooq-rest-api/logs
+            - name: java-jooq-rest-api-log
+              mountPath: /opt/java-demo/jooq-rest-api/logs
               readOnly: false
-            - name: jooq-rest-api-file
-              mountPath: /opt/rokroot-demo/jooq-rest-api/files
+            - name: java-jooq-rest-api-file
+              mountPath: /opt/java-demo/jooq-rest-api/files
               readOnly: false
           env:
             - name: TZ
@@ -50,7 +50,7 @@ spec:
           command:
             - "java"
             - "-jar"
-            - "/opt/rokroot-demo/jooq-rest-api/rokroot-jooq-rest-api.jar"
+            - "/opt/java-demo/jooq-rest-api/jooq-rest-api.jar"
             {{- if .Values.jooq.rest.api.java.opts }}
             {{- $opts := .Values.jooq.rest.api.java.opts | split " " }}
             {{- range $opt := $opts }}
@@ -58,18 +58,18 @@ spec:
             {{- end }}
             {{- end }}
       volumes:
-        - name: jooq-rest-api-config
+        - name: java-jooq-rest-api-config
           configMap:
-            name: jooq-rest-api-config
+            name: java-jooq-rest-api-config
             items:
               - key: application.properties
                 path: application.properties
               - key: log4j2.properties
                 path: log4j2.properties
-        - name: jooq-rest-api-log
+        - name: java-jooq-rest-api-log
           persistentVolumeClaim:
-            claimName: jooq-rest-api-log-pvc
-        - name: jooq-rest-api-file
+            claimName: java-jooq-rest-api-log-pvc
+        - name: java-jooq-rest-api-file
           persistentVolumeClaim:
-            claimName: jooq-rest-api-file-pvc
+            claimName: java-jooq-rest-api-file-pvc
 ---

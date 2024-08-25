@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: jooq-rest-api-config
+  name: java-jooq-rest-api-config
   namespace: {{ .Release.Namespace }}
 data:
   application.properties: |

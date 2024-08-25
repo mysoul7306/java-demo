@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: jooq-rest-api-log-pv
+  name: java-jooq-rest-api-log-pv
   namespace: {{ .Release.Namespace }}
 spec:
   accessModes:
@@ -9,7 +9,7 @@ spec:
   capacity:
     storage: 5Gi
   hostPath:
-    path: /data/jooq-rest-api/logs
+    path: /data/java-jooq-rest-api/logs
     type: DirectoryOrCreate
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-path
@@ -18,10 +18,10 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: jooq-rest-api-log-pvc
+  name: java-jooq-rest-api-log-pvc
   namespace: {{ .Release.Namespace }}
 spec:
-  volumeName: jooq-rest-api-log-pv
+  volumeName: java-jooq-rest-api-log-pv
   accessModes:
     - ReadWriteMany
   resources:
@@ -34,7 +34,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: jooq-rest-api-file-pv
+  name: java-jooq-rest-api-file-pv
   namespace: {{ .Release.Namespace }}
 spec:
   accessModes:
@@ -42,7 +42,7 @@ spec:
   capacity:
     storage: 30Gi
   hostPath:
-    path: /data/jooq-rest-api/files
+    path: /data/java-jooq-rest-api/files
     type: DirectoryOrCreate
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-path
@@ -51,10 +51,10 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: jooq-rest-api-file-pvc
+  name: java-jooq-rest-api-file-pvc
   namespace: {{ .Release.Namespace }}
 spec:
-  volumeName: jooq-rest-api-file-pv
+  volumeName: java-jooq-rest-api-file-pv
   accessModes:
     - ReadWriteMany
   resources:
