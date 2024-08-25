@@ -27,7 +27,7 @@ public class RestAPIInitializer {
 
         final SpringApplication app = builder.build();
         app.setLogStartupInfo(true);
-        app.addListeners(new ApplicationPidFileWriter("./rokroot-rest-api.pid"));
+        app.addListeners(new ApplicationPidFileWriter("./jooq-rest-api.pid"));
         app.run(args);
     }
 

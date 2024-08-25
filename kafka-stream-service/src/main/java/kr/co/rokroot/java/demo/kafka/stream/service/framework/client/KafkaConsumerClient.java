@@ -63,7 +63,7 @@ public class KafkaConsumerClient {
     @PostConstruct
     public void init() {
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, String.format("%s:%s", host, port));
-        props.put(ConsumerConfig.GROUP_ID_CONFIG, "rokroot-stream-demo");
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, "kafka-stream-service");
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, ByteArrayDeserializer.class);
         props.put(ConsumerConfig.FETCH_MAX_WAIT_MS_CONFIG, 9000);

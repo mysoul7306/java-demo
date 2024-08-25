@@ -37,7 +37,7 @@ public class StreamServiceInitializer {
 
         final SpringApplication app = builder.build();
         app.setLogStartupInfo(true);
-        app.addListeners(new ApplicationPidFileWriter("./rokroot-stream-service.pid"));
+        app.addListeners(new ApplicationPidFileWriter("./kafka-stream-service.pid"));
         app.run(args);
     }
 

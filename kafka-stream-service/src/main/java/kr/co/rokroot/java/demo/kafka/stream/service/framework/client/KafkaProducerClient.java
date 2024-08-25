@@ -71,7 +71,7 @@ public class KafkaProducerClient {
         try {
             log.info("========= Kafka producer start =========");
 
-            props.put(ProducerConfig.TRANSACTIONAL_ID_CONFIG, "rokroot-demo-" + UUID.randomUUID());
+            props.put(ProducerConfig.TRANSACTIONAL_ID_CONFIG, "kafka-stream-service-" + UUID.randomUUID());
             this.producer = new KafkaProducer<>(props);
             while (true) {
                 try {
